@@ -1,13 +1,6 @@
 <div align="center">
     
 </div>
-<br id="topo">
-<p align="center">
-    <a href="#tecnologias">Tecnologias</a>  |  
-    <a href="#equipe">Equipe</a>
-</p>
-
-→ [Voltar ao topo](#topo)
 
 <span id="tecnologias">
 
@@ -15,23 +8,71 @@
 
 As seguintes ferramentas, linguagens, bibliotecas e tecnologias foram usadas na construção do projeto:
 
-<img src="https://img.shields.io/badge/PHP-CED4DA?style=for-the-badge&logo=javascript&logoColor=yellow" alt="PHP" />
+<img src="https://img.shields.io/badge/PHP-CED4DA?style=for-the-badge&logo=php&logoColor=black" alt="PHP" />
 <img src="https://img.shields.io/badge/HTML5-CED4DA?style=for-the-badge&logo=html5&logoColor=E34F26" alt="HTML" /> 
 <img src="https://img.shields.io/badge/CSS3-CED4DA?style=for-the-badge&logo=css3&logoColor=1572B6" alt="CSS" /> 	
 <img src="https://img.shields.io/badge/MySQL-CED4DA?style=for-the-badge&logo=mysql&logoColor=black" alt="MySQL" />
 <img src="https://img.shields.io/badge/VS_Code-CED4DA?style=for-the-badge&logo=visual%20studio%20code&logoColor=0078D4" alt="VS Code" /> 
 <img src="https://img.shields.io/badge/GitHub-CED4DA?style=for-the-badge&logo=github&logoColor=20232A" alt="GitHub" />  
 
-    
-→ [Voltar ao topo](#topo)
 
-<span id="equipe">
-
-## :busts_in_silhouette: Equipe
-
-|Nome                                  |                                                                                                                                                      LinkedIn & GitHub                                                                                                                                                      |
-| :-----------: | :------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |          |
-| Scrum Master  | Guilherme Duarte Cenzi Dias |      [![Linkedin Badge](https://img.shields.io/badge/Linkedin-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/guilherme-duarte-cenzi-dias-9737621b6) [![GitHub Badge](https://img.shields.io/badge/GitHub-111217?style=flat-square&logo=github&logoColor=white)](https://github.com/Guilhermedcdias)     |
+## ⚙️ Como Rodar
 
 
-→ [Voltar ao topo](#topo)
+Para Rodar o Código é necessário configurar o ambiente no qual irá testa-lo, caso deseje utilizar aplicativos como o XAMPP, NGINX OU LAMP é necessario liberar algumas funções nas configurações dos mesmo...
+A seguinte função deve ser habilitada dentro do arquivo httpd.conf:
+<br>
+~~~
+LoadModule rewrite_module modules/mod_rewrite.so
+ ~~~
+
+<br>
+ 
+ E a seguinte linha de código deve estar deste jeito:
+<br>
+ 
+ ~~~
+<Directory />
+    AllowOverride All
+    Require all granted
+</Directory>
+ ~~~
+ 
+ 
+ Após deve ser criado um arquivo .htacess, que possibilita que as rotas criadas no projeto sejam devidamente acessadas quando necessário:
+ ~~~
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /CRUD_PHP_MVC/APP/index.php?url=$1 [QSA,L]
+RewriteRule ^style.css$ /style-css.php [L]
+ ~~~
+ É importante que na 3ª linha deste código seja alterado o caminho para o index.php do projeto como foi feito a seguir:
+ ~~~
+ /CRUD_PHP_MVC/APP/index.php
+ ~~~
+ 
+ Caso tenha o php instalado diretamente na maquina, basta pular os passos acima e seguir daqui.
+ 
+ O próximo passo para rodar o projeto é clonar o repositório usando o seguinte comando no terminal do seu computador:
+ 
+ ~~~
+ git clone https://github.com/Guilhermedcdias/Crud-MVC-PHP-MySQL.git
+ ~~~
+ 
+ Depois de clonado o repositório basta abrir seu Workbench ou seu PHPMyAdmin e rodar o código para criar a base de dados utilizada no projeto.
+ O Dump do Banco de dados se encontra na pasta Documentação na pasta raiz do Projeto.
+ 
+ Um ponto importante é que você deve saber o usuario e a senha do seu banco de dados para colocar no arquivo de configuração do banco de dados dentro do php.
+ 
+ Após fazer a importação do Banco de dados, é necessario Localizar a pasta em que deseja rodar o projeto, caso seja no XAMPP é necessário colocar a pasta do projeto dentro da pasta HTDOCS, que normalmente fica localizada dentro de C:/XAMPP/htdocs.
+ 
+ Agora é necessário abrir o projeto no editor de sua escolhar e alterar a senha e o usuario do banco de dados nos arquivos "FornecedorDAO.php" e "ProdutoDAO.php", que estão localizados na Pasta DAO dentro da pasta APP.
+ 
+ O trecho de código que é necessario ser alterado é o seguinte:
+ ~~~
+ $this->conexao = new PDO($dsn, 'usuario, 'senha');
+ ~~~
+ Agora basta entrar em localhost:80 e o projeto deve estar rodando.
+ 
+ 
+ 
