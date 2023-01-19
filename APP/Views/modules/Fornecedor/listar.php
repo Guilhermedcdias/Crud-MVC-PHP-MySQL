@@ -60,7 +60,7 @@
               <!-- Colocando Informações -->
               <td><?= $item->telefone ?></td>
               <td><?= $item->celular_vendedor ?></td>
-              <td><a href="../Fornecedor/cadastrar?id=<?= $item->id_Fornecedor?>"><button class="editar">Editar</button></a></td>
+              <td><a href="../Fornecedor/cadastrar?id=<?= $item->id_Fornecedor?>" class="editar">Editar</a></td>
               <!-- botão de editar -->
             </tr>
             <?php endforeach ?>
