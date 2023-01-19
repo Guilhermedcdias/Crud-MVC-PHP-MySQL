@@ -3,11 +3,14 @@
 include 'Controllers/FornecedorControllers.php';
 include 'Controllers/ProdutoControllers.php';
 
-
+// Pega rotas da url
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-
+// Switch que redireciona para cada rota do controller
 switch($url){
+  case '/':
+    FornecedorController::index();
+  break;
   case '/Fornecedor':
     FornecedorController::index();
   break;

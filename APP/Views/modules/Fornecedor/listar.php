@@ -9,6 +9,7 @@
   </head>
   <body>
     <section>
+      <!-- Menu -->
       <ul>
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropbtn">Fornecedor</a>
@@ -28,6 +29,7 @@
     </section>
 
     <section id="listar_fornecedores">
+      <!-- tabela q mostra as informações -->
       <form action="../Fornecedor/delete" method="post">
         <div class="content">
         <table class="rTable">
@@ -46,16 +48,20 @@
           </thead>
           <tbody>
           <?php foreach($model->rows as $item):?>
+            <!-- Percorre as linhas do banco -->
             <tr>
               <td><input type="checkbox" name="deletar[]" id="" value="<?= $item->id_Fornecedor?>"></td>
+              <!-- Checkbox para deletes -->
               <td><?= $item->nome_vendedor ?></td>
               <td><?= $item->nome_fantasia ?></td>
               <td><?= $item->razao_social ?></td>
               <td><?= $item->cnpj ?></td>
               <td><?= $item->email_vendedor ?></td>
+              <!-- Colocando Informações -->
               <td><?= $item->telefone ?></td>
               <td><?= $item->celular_vendedor ?></td>
               <td><a href="../Fornecedor/cadastrar?id=<?= $item->id_Fornecedor?>"><button class="editar">Editar</button></a></td>
+              <!-- botão de editar -->
             </tr>
             <?php endforeach ?>
           </tbody>
@@ -69,6 +75,7 @@
            ?>
             <a href="../Fornecedor?paginas=<?= $atual-1?>">Anterior</a>
             <a href="../Fornecedor?paginas=<?= $atual+1?>">Próxima</a>
+            <!-- Paginação -->
 
           </div>
           

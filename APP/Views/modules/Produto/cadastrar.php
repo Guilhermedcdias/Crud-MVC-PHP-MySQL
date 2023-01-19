@@ -10,6 +10,7 @@
 </head>
 <body>
   <section>
+    <!-- Menu -->
   <ul>
     <li class="dropdown">
     <a href="javascript:void(0)" class="dropbtn">Fornecedor</a>
@@ -30,14 +31,17 @@
   <section id="cadastrar_produto">
     <div class="caixa">
       <form action="/Produto/cadastrar/save" method="post">
+        <!-- Começo dos Inputs e select -->
         <input type="hidden" name="id" value="<?= $model->id_Produto?>">
         <label for="id_Fornecedor">Fornecedor:
           </label>
           <select name="id_Fornecedor" required>
-            <?php foreach($forn->rows2 as $item):?>
+            <?php foreach($forn->rows2 as $item):?> 
+              <!-- Percorre fornecedores e coloca cada um em uma value -->
             <option value="<?= $item->id_Fornecedor?>" <?php
              if (($model->id_Fornecedor) == ($item->id_Fornecedor)) {
                echo 'selected';
+              //  Verifica se o que veio do banco no caso de alteração é igual ao que veio na lista de fornecedores e se é imprime um selected nele para fica mostrando na caixinha
              }?>><?= $item->nome_fantasia?></option>
             <?php endforeach?>
           </select>

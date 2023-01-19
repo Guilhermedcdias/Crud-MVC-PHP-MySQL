@@ -9,6 +9,7 @@
   </head>
   <body>
     <section>
+      <!-- Menu -->
       <ul>
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropbtn">Fornecedor</a>
@@ -45,11 +46,13 @@
           <?php foreach($model->rows as $item):?>
             <tr>
               <td><input type="checkbox" name="deletar[]" id="" value="<?= $item->id_Produto?>"></td>
+              <!-- Checkbox de exclusão -->
               <td><?= $item->nome_fantasia ?></td>
               <td><?= $item->nome_produto ?></td>
               <td><?= $item->peso ?></td>
               <td><?= $item->quantidade_estoque ?></td>
               <td><a href="../Produto/cadastrar?id=<?= $item->id_Fornecedor?>" class="editar">Editar  </a></td>
+              <!-- Botao de editar -->
             </tr>
             <?php endforeach ?>
           </tbody>
@@ -63,6 +66,7 @@
            ?>
             <a href="../Produto?paginas=<?= $atual-1?>">Anterior</a>
             <a href="../Produto?paginas=<?= $atual+1?>">Próxima</a>
+            <!-- Paginação -->
 
           </div>
           

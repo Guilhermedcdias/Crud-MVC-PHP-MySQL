@@ -9,7 +9,8 @@
   
 </head>
 <body>
-  <section>
+  <section> 
+    <!-- Menu -->
   <ul>
     <li class="dropdown">
     <a href="javascript:void(0)" class="dropbtn">Fornecedor</a>
@@ -29,8 +30,10 @@
   </section>
   <section id="cadastrar_fornecedor">
     <div class="caixa">
+    <!-- Inputs -->
       <form action="/Fornecedor/cadastrar/save" method="post">
         <input type="hidden" name="id" value="<?= $model->id_Fornecedor?>">
+        <!-- Colocando Variaveis nos inputs -->
         <label for="nome">Nome:
           </label>
           <input type="text" placeholder="Insira o Nome" name="nome" value="<?= $model->nome_vendedor?>" required>
